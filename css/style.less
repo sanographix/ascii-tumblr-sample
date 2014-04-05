@@ -1,0 +1,608 @@
+/*
+    Main CSS
+*/
+
+@import "_normalize.less";
+@import "_mixin.less";
+@import "_variable.less";
+
+/* Common Styles */
+
+// Common
+
+html,
+body {
+    font-family: 'Times New Roman', serif;
+    background: @bg;
+    color: @base;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: @link;
+
+    &:hover {
+        color: @hover;
+    }
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+    a,a:hover {
+        text-decoration: none;
+    }
+}
+
+// ボタン
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: .6em 1.2em;
+    cursor: pointer;
+    line-height: 1.5;
+    font-size: 90%;
+    .border-radius(3px);
+    overflow: hidden;
+    color: @base;
+    background-color: @btn;
+    text-decoration: none;
+    border: 1px solid rgba(0,0,0,.15);
+    &:hover {
+        background-color: @btn-hover;
+        color: @base;
+        text-decoration: none;
+        border: 1px solid rgba(0,0,0,.2);
+    }
+}
+
+.btn-primary {
+    background-color: @btn-primary;
+    color: #fff;
+    border: 1px solid @btn-primary;
+    &:hover {
+        background-color: @btn-primary-hover;
+        color: #fff;
+        border: 1px solid @btn-primary-hover;
+    }
+}
+
+.btn-large {
+    padding: .8em 2em;
+    font-size: 150%;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+/* End Common Styles */
+
+#container {
+    width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* header */
+
+#header {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.portrait {
+    width: 80px;
+    height: 80px;
+    .border-radius(100px);
+}
+
+.blog-title {
+    font-size: 300%;
+    margin: .2em 0;
+    font-weight: normal;
+}
+
+.blog-description {
+    font-size: 85%;
+    margin: 0;
+    font-weight: normal;
+}
+
+/* nav */
+
+.nav {
+    border-bottom: 1px dashed @border-dark;
+    margin-bottom: 2em;
+    padding-bottom: .5em;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        .clearfix;
+    }
+
+    li {
+        list-style: none;
+        float: left;
+        margin: .3em 2.5em .3em 0;
+        font-size: 95%;
+        text-transform: uppercase;
+        letter-spacing: .15em;
+
+        a {
+            text-decoration: none;
+            &:before {
+                content: "▶ ";
+                font-size: 60%;
+                color: @light;
+                position: relative;
+                top: -.1em;
+            }
+        }
+    }
+}
+
+/* entry */
+
+.post {
+    background-color: #fff;
+    padding: 20px 30px;
+    margin-bottom: 3em;
+}
+
+.entry-title {
+    margin: 0 0 .5em;
+    font-size: 160%;
+}
+
+// entry-content の中の書式
+
+.entry-content {
+    font-size: 95%;
+    line-height: 1.8;
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+
+    p {
+        margin: 1em 0;
+    }
+
+    img,
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    // Flickr で max-width 指定したときのアスペクト比をなおす
+     a[title*="Flickr"] img {
+        height: auto !important;
+     }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 1em 0 0.8em 0;
+        line-height: 1.5;
+    }
+
+    h1 {
+        font-size: 170%;
+    }
+
+    h2 {
+        font-size: 160%;
+    }
+
+    h3 {
+        font-size: 140%;
+    }
+
+    h4 {
+        font-size: 130%;
+    }
+
+    h5 {
+        font-size: 110%;
+    }
+
+    h6 {
+        font-size: 100%;
+    }
+
+    ul,
+    ol,
+    dd {
+        margin: 0 0 1em 1.5em;
+        padding: 0;
+
+        li {
+            ul,ol {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-bottom: 1em;
+        margin-bottom: 1em;
+        width: 100%;
+        overflow: auto;
+        display: block;
+    }
+
+    table th,
+    table td {
+        border: 1px solid #ddd;
+        padding: 5px 10px;
+    }
+
+    table th {
+        background: #fafafa;
+    }
+
+
+    .hatena-asin-detail li {
+        line-height: 1.4;
+    }
+
+    blockquote {
+        margin: 1.5em 1em;
+        padding: 5px 20px;
+        border-left: 2px solid #aaa;
+        color: #777;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+    }
+
+    pre,
+    code {
+        font-family: 'Monaco', 'Consolas', 'Courier New', Courier, monospace, sans-serif;
+    }
+
+    pre {
+        padding: 15px;
+        background: @bg-light;
+        border: none;
+        .border-radius(3px);
+        word-wrap: normal;
+        overflow-x: auto;
+        font-size: 100%;
+        line-height: 1.3;
+
+        &>code {
+            margin: 0;
+            padding: 0;
+            white-space: pre;
+            border: none;
+            background-color: transparent;
+            font-family: 'Monaco', 'Consolas', 'Courier New', Courier, monospace, sans-serif;
+        }
+    }
+
+    code {
+        font-size: 90%;
+        margin: 0 2px;
+        padding: 0px 5px;
+        border: 1px solid @border;
+        background-color: #f7f7f2;
+        border-radius: 3px;
+    }
+
+    .amazlet-box {
+        border: 1px solid @border;
+        padding: 15px;
+        margin-bottom: 1em !important;
+        .border-radius(4px);
+    }
+
+    .sticky-itslink,
+    .iTunesLinker-box {
+        border: 1px solid @border;
+        padding: 15px;
+        margin-bottom: 1em;
+        .border-radius(4px);
+    }
+
+    // twilog
+
+    .tl-tweet {
+        margin-bottom: 10px;
+        border-bottom: 1px dashed @border;
+        padding-bottom: 10px;
+
+        .tl-text {
+            margin-bottom: 5px;
+        }
+
+        .tl-posted {
+            font-size: 85%;
+            color: @light;
+            margin: 0;
+        }
+    }
+
+    ul.tl-tweets {
+        margin: 0 0 10px 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed @border;
+            padding-bottom: 10px;
+        }
+    }
+
+    // gistでtableおかしいのを打ち消す
+    .gist {
+        table {
+            margin: 0;
+            border: 0;
+            td {
+                border: 0;
+            }
+        }
+    }
+
+    hr {
+        width: 20%;
+        margin: 3em auto;
+        border: 0;
+        border-top: 3px solid @border;
+    }
+
+}
+
+// link
+
+.link {
+    .entry-title {
+        background: @bg-light;
+        border: 1px solid @border;
+        padding: 8px;
+        .border-radius(5px);
+        a {
+            color: @link;
+        }
+    }
+}
+
+/* quote post */
+
+.quote {
+
+    .entry-content.short > blockquote {
+        font-size: 140%;
+    }
+
+    .entry-content.medium > blockquote {
+        font-size: 120%;
+    }
+
+    .entry-content.long > blockquote {
+        font-size: 100%;
+    }
+
+}
+
+/* chat post */
+
+.ul-chat {
+    list-style: none;
+    margin: 0 !important;
+
+    li {
+        padding: 8px 15px;
+    }
+
+    .odd {
+        background: @bg-light;
+    }
+
+    .label {
+        font-weight: bold;
+    }
+}
+
+/* Answer post */
+
+.answer {
+    .question {
+        .border-radius(5px);
+        padding: 15px;
+        font-size: 110%;
+        background: @bg-light;
+        margin-bottom: 1em;
+        position: relative;
+
+        &:after {
+            top: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        &:after {
+            border-color: rgba(245, 245, 245, 0);
+            border-top-color: @bg-light;
+            border-width: 10px;
+            left: 6.5%;
+            margin-left: -10px;
+        }
+
+    }
+
+    .asker-group {
+        margin-left: 5%;
+    }
+
+    .user-icon {
+        .border-radius(2px);
+        .box-shadow(0,0,0,#fff);
+    }
+}
+
+/* entry footer */
+
+.entry-footer {
+    border-top: 1px dashed @border;
+    margin-top: .7em;
+    padding-top: .7em;
+    line-height: 1.7;
+    font-size: 90%;
+    letter-spacing: .1em;
+
+    .meta {
+        color: @light;
+        a {
+            color: @light;
+            text-decoration: none;
+        }
+    }
+
+    .meta-elements {
+        margin-right: 1em;
+    }
+}
+
+.meta-rebloggedfrom {
+    margin-bottom: .5em;
+}
+
+.entry-footer-wrapper {
+    display: table;
+    width: 100%;
+}
+
+.entry-meta-wrapper,
+.tumblr-controls {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.entry-meta-wrapper {
+    width: 70%;
+}
+
+.tumblr-controls {
+    width: 30%;
+}
+
+.tumblr-controls {
+    text-align: right;
+}
+
+.like_and_reblog_buttons {
+    margin: 0;
+    padding: 0;
+    li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 .5em;
+    }
+}
+
+
+// ソーシャルボタン
+.social-buttons {
+    .clearfix;
+    margin: 1em 0;
+    padding: 0;
+
+    li {
+        float: left;
+        margin: 5px 15px 5px 0;
+        list-style: none;
+
+        .fb_iframe_widget > span {
+          vertical-align: baseline !important;
+        }
+
+    }
+}
+
+.notecount-header {
+    margin: 1.5em 0 .5em;
+}
+
+.notecontainer {
+    margin: 0 0 2em;
+    font-size: 90%;
+
+    ol {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            border-bottom: 1px dashed @border;
+            padding: .5em 0;
+
+            .avatar {
+                max-height: 16px;
+                width: auto;
+                vertical-align: middle;
+                margin-right: .5em;
+            }
+        }
+
+        .avatar {
+            .border-radius(3px);
+        }
+
+    }
+}
+
+/* ページャ */
+
+.pagenation {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 95%;
+    font-weight: bold;
+    letter-spacing: .1em;
+
+    span,
+    a {
+        display: inline-block;
+        min-width: 1.2em;
+        height: 1.2em;
+        line-height: 1.2em;
+        padding: 6px;
+        margin: 1px;
+        text-decoration: none;
+        .border-radius(40px);
+    }
+
+    .current-page {
+        background: @link;
+        color: #fff;
+    }
+
+    &.pagenation-permalink {
+        a {
+            padding: 8px 15px;
+        }
+    }
+}
+
+/* footer */
+
+#footer {
+    margin: 3em 0;
+    font-size: 80%;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@import "_media-queries.less";
