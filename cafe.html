@@ -25,11 +25,16 @@
   <link rel="canonical" href="{Permalink}"/>
 
   <!-- 元の CSS, LESS ファイルは css/ 以下にあります -->
-  <link rel="stylesheet" type="text/css" media="screen" href="//static.tumblr.com/xlsgtjb/lcXn3rqhn/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="//static.tumblr.com/xlsgtjb/dYVn4bczt/style.css" />
 
   <!-- OGP -->
   <meta property="og:title" content="{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}" />
-  <meta property="og:type" content="article" />
+  {block:IndexPage}
+    <meta property="og:type" content="website" />
+  {/block:IndexPage}
+  {block:PermalinkPage}
+    <meta property="og:type" content="article" />
+  {/block:PermalinkPage}
   <meta property="og:image" content="{PortraitURL-128}" />
   <!-- Twitter tags -->
   <meta name="twitter:image" content="{PortraitURL-128}" />
@@ -305,7 +310,7 @@
                 </span>
                 {block:NoteCount}
                   <span class="meta-elements notecount">
-                    <a href="{Permalink}">{NoteCount} Notes</a>
+                    <a href="{Permalink}">{NoteCountWithLabel}</a>
                   </span>
                 {/block:NoteCount}
                 {block:HasTags}
@@ -329,7 +334,7 @@
             </div>
 
             {block:PostNotes}
-              <h3 class="notecount-header">{NoteCount} Notes</h3>
+              <h3 class="notecount-header">{NoteCountWithLabel}</h3>
               <div class="notecontainer">{PostNotes}</div>
             {/block:PostNotes}
           </footer>
@@ -352,7 +357,7 @@
       </div>
     {/block:PermalinkPagination}
 
-    <!-- ページごとのページャ -->
+    <!-- インデックスページのページャ -->
     {block:Pagination}
       <div class="pagenation pagenation-index">
         {block:PreviousPage}
